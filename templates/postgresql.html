@@ -6,23 +6,25 @@
     <body style="background-color: bisque;">
         <h1>PostgreSQL Data</h1>
 
-        <form method="POST" action="">
-            Name<input type="text" name="name"/><br>
-            Email<input type="text" name="email"/><br>
-            <input type="submit">
-        </form>
+        <div style="margin: auto; width: 50%; padding: 10px; text-align: center; font-size: large;">
+            <form method="POST" action="">
+                Name<input type="text" name="name"/><br>
+                Email<input type="text" name="email"/><br>
+                <button type="submit" style="padding: 10px;" value="Save Data"><span style="font-size: 15px;">Save Data</span></button>
+            </form>
+        </div>
 
         <hr>
 
         <div>
-            <table style="border: 2px solid blue;">
+            <table border="1" cellpadding="10px" style="border: 2px solid blue;">
                 <tr>
                     <th>Name</th>
                     <th>Email</th>
                 </tr>
                 {% for user in users: %}
                 <tr>
-                    <td>{{ user.name }}</td>
+                    <td padding= "4px">{{ user.name }}</td>
                     <td>{{ user.email }}</td>
                 </tr>
                 {% endfor %}
