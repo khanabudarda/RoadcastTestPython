@@ -48,10 +48,7 @@ def hello_world():
 @app.route('/MySQL', methods=['GET', 'POST'])
 def mysqlrt():
     if request.method == "POST":
-        dataF = request.form
-        nameU = dataF['name']
-        ageU = dataF['age']
-        userI = UserInfo(nameU, ageU)
+        userI = UserInfo(request.form['name'], request.form['age'])
         try:
             mysql.session.add(userI)
             mysql.session.commit()
@@ -68,10 +65,7 @@ def mysqlrt():
 @app.route('/PostgreSQL', methods=['POST', 'GET'])
 def postgre():
     if request.method == "POST":
-        dataF = request.form
-        nameU = dataF['name']
-        emailU = dataF['email']
-        userI = UserDetail(nameU, emailU)
+        userI = UserDetail(request.form['name'], request.form['email'])
         try:
             mysql.session.add(userI)
             mysql.session.commit()
